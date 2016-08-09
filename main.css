@@ -1,0 +1,37 @@
+body {
+  background-color: #F4F6F6;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 50px;
+}
+
+h1, h2, h3, p, a {
+  font-family: 'Lucida Sans Typewriter', 'Lucida Console', monaco, 'Bitstream Vera Sans Mono', monospace;
+}
+
+header {
+  text-align: center;
+}
+
+header > p {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+section.content > img {
+  border: 2px solid black;
+  display: block;
+  margin: 60px auto;
+  max-width: 300px;
+}
+
+footer {
+  text-align: center;
+}
+
+footer > ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+}
