@@ -1,0 +1,3 @@
+User-agent: *
+Sitemap: http://wanagon.com/sitemap.xml
+Disallow: /ghost/
