@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import 'typeface-roboto'
+
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
 
 // Your top level component

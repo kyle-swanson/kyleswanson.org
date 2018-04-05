@@ -5,8 +5,6 @@ import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
 
 import CssBaseline from 'material-ui/CssBaseline'
-import AppBar from 'material-ui/AppBar'
-import Tabs, { Tab } from 'material-ui/Tabs'
 import { withStyles } from 'material-ui/styles'
 
 // Custom styles
@@ -16,13 +14,9 @@ const styles = {
       maxWidth: '100%',
     },
   },
-  appBar: {
-    flexWrap: 'wrap',
-  },
-  tabs: {
-    width: '100%',
-  },
   content: {
+    margin: '0 auto',
+    maxWidth: 525,
     padding: '1rem',
   },
 }
@@ -43,15 +37,6 @@ class App extends PureComponent {
       <Router>
         <div className={classes.container}>
           <CssBaseline />
-          <AppBar className={classes.appBar} color="default" position="static">
-            <nav>
-              <Tabs className={classes.tabs} value={false}>
-                <Tab component={Link} to="/" label="Home" />
-                <Tab component={Link} to="/about" label="About" />
-                <Tab component={Link} to="/blog" label="Blog" />
-              </Tabs>
-            </nav>
-          </AppBar>
           <div className={classes.content}>
             <Routes />
           </div>
