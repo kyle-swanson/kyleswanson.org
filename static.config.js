@@ -7,6 +7,7 @@ import { MuiThemeProvider, createMuiTheme, createGenerateClassName } from 'mater
 import theme from './src/theme'
 
 export default {
+  siteRoot: '/',
   getSiteData: () => ({
     title: 'KyleSwanson.org',
   }),
@@ -16,8 +17,8 @@ export default {
       component: 'src/containers/Home',
     },
     {
-      path: '/about',
-      component: 'src/containers/About',
+      path: '/universe',
+      component: 'src/containers/Universe',
     },
     {
       is404: true,

@@ -5,10 +5,11 @@ import Typography from 'material-ui/Typography'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
 import Grid from 'material-ui/Grid'
-import Chip from 'material-ui/Chip';
+import Chip from 'material-ui/Chip'
 
 import profileImage from '../images/profile.jpg'
-import scrollerImage from '../../images/reactVizGif.gif'
+import reactVizImage from '../../images/reactVizGif.gif'
+import universeImage from '../images/UniverseCapture.gif'
 
 const containerStyle = {}
 
@@ -43,6 +44,10 @@ const LINKS_LIST = [
   {
     l: 'Universe',
     a: 'https://universe.leagueoflegends.com/en_US/',
+  },
+  {
+    l: 'Wanagon Travel Blog',
+    a: '/wanagon/',
   },
 ]
 
@@ -102,7 +107,20 @@ export default withSiteData(() => (
 
       <Grid item xs={12}>
         <Paper style={paperStyle} elevation={4}>
-          <img style={imgStyle} src={scrollerImage} alt="Scroller" />
+          <img style={imgStyle} src={universeImage} alt="Scroller" />
+          <Button align="center" color="primary" href="/Universe/">
+            About Universe
+          </Button>
+
+          <Button align="center" color="primary" href="https://universe.leagueoflegends.com/en_US/">
+            Universe
+          </Button>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={12}>
+        <Paper style={paperStyle} elevation={4}>
+          <img style={imgStyle} src={reactVizImage} alt="Scroller" />
           <Button align="center" color="primary" href="https://www.npmjs.com/package/react-vizibility-watcher">
             react-vizibility-watcher
           </Button>
