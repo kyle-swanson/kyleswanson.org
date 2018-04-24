@@ -5,7 +5,7 @@ import Typography from 'material-ui/Typography'
 export default () => (
   <div>
     <Typography type="headline" align="center">
-      404 - Oh no's! We couldn't find that page :(
+      404 - Oh no! We couldn't find that page :(
     </Typography>
   </div>
 )

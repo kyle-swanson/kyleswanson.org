@@ -56,7 +56,7 @@ export default withSiteData(() => (
       </Grid>
 
       <Grid item xs={12}>
-        <Paper style={paperStyle} zDepth={4}>
+        <Paper style={paperStyle} elevation={4}>
           <img style={imgStyle} src={profileImage} alt="Profile" />
         </Paper>
       </Grid>
@@ -101,7 +101,7 @@ export default withSiteData(() => (
       </Grid>
 
       <Grid item xs={12}>
-        <Paper style={paperStyle} zDepth={4}>
+        <Paper style={paperStyle} elevation={4}>
           <img style={imgStyle} src={scrollerImage} alt="Scroller" />
           <Button align="center" color="primary" href="https://www.npmjs.com/package/react-vizibility-watcher">
             react-vizibility-watcher
@@ -114,7 +114,7 @@ export default withSiteData(() => (
           Links
         </Typography>
 
-        { LINKS_LIST.map(({ l, a }) => <Chip style={{ marginRight: 8, cursor: 'pointer' }} key={a} component="a" href={a} label={l} />) }
+        { LINKS_LIST.map(({ l, a }) => <Chip style={{ marginRight: 8, marginTop: 8, cursor: 'pointer' }} key={a} component="a" href={a} label={l} />) }
       </Grid>
     </Grid>
   </div>
