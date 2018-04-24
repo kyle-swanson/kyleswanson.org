@@ -7,7 +7,7 @@ import { MuiThemeProvider, createMuiTheme, createGenerateClassName } from 'mater
 import theme from './src/theme'
 
 export default {
-  siteRoot: '/',
+  siteRoot: '',
   getSiteData: () => ({
     title: 'KyleSwanson.org',
   }),
