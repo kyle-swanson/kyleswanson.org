@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "react-static start",
-    "build": "react-static build && cp -r wanagon dist/wanagon && cp -r projects dist/projects && cp -r images dist/images && cp CNAME dist/CNAME",
+    "build": "react-static build && cp -r wanagon dist/wanagon && cp -r projects dist/projects && cp -r images dist/images",
     "serve": "serve dist -p 3000",
     "fulldeploy": "yarn build && yarn deploy",
     "deploy": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages"
