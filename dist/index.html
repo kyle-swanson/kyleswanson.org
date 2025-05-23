@@ -1,245 +1,323 @@
 <!doctype html>
-
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kyle Swanson</title>
+    <meta name="description" content="KyleSwanson.org" />
+    <meta name="author" content="Kyle Swanson" />
 
-        <title>KyleSwanson.org</title>
-        <meta name="description" content="KyleSwanson.org" />
-        <meta name="author" content="Kyle Swanson" />
+    <style>
+      :root {
+        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        --clr-bg: #fdfdfd;
+        --clr-txt: #222;
+        --clr-accent: #0077ff;
+        --max-width: 800px;
+      }
 
-        <style>
-            body {
-                font-family: serif;
-                max-width: 800px;
-                margin-left: 40px;
-            }
-        </style>
-    </head>
+      * {
+        box-sizing: border-box;
+      }
 
-    <body>
+      body {
+        margin: 0;
+        padding: 2rem 1rem;
+        font-family: var(--font-sans);
+        color: var(--clr-txt);
+        background: var(--clr-bg);
+        line-height: 1.55;
+        display: flex;
+        justify-content: center;
+      }
+
+      main {
+        max-width: var(--max-width);
+        width: 100%;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .avatar {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.2;
+      }
+
+      h2 {
+        font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+        margin: 2rem 0 0.5rem;
+        line-height: 1.3;
+        color: var(--clr-accent);
+      }
+
+      ul {
+        padding-left: 1.25rem;
+        margin-top: 0.5rem;
+      }
+
+      li + li {
+        margin-top: 0.25rem;
+      }
+
+      a {
+        color: var(--clr-accent);
+        text-decoration: none;
+        transition: opacity 0.15s ease-in-out;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        opacity: 0.8;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --clr-bg: #1b1b1b;
+          --clr-txt: #e8e8e8;
+          --clr-accent: #66aaff;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <img src="profile.jpeg" alt="Kyle Swanson" class="avatar" />
         <h1>Kyle Swanson</h1>
+      </header>
 
+      <section>
         <h2>Timeline</h2>
         <ul>
-            <li>2019-Present | Mainstream Data</li>
-            <li>2014-2019 | Super Top Secret</li>
-            <li>2013-2015 | Westminster College</li>
-            <li>2011-2013 | Salt Lake Community College</li>
+          <li>2019–Present | Mainstream Data</li>
+          <li>2014–2019 | Super Top Secret</li>
+          <li>2013–2015 | Westminster College</li>
+          <li>2011–2013 | Salt Lake Community College</li>
         </ul>
+      </section>
 
+      <section>
         <h2>Bio</h2>
-
         <p>
-            I'm a Westminster College graduate in Computer Science with a 3.979
-            GPA.
+          I'm a Westminster College graduate in Computer Science with a 3.979
+          GPA.
         </p>
         <p>
-            In my spare time you'll find me skiing, mountain biking, rock
-            climbing, and anything else you can think of outside.
+          In my spare time you'll find me skiing, mountain biking, rock
+          climbing, and anything else you can think of outside.
         </p>
+      </section>
 
+      <section>
         <h2>Experience With</h2>
         <ul>
-            <li>React + Typescript</li>
-            <li>Flutter</li>
-            <li>Firebase</li>
-            <li>React Native</li>
-            <li>Express</li>
-            <li>
-                AWS - EC2, ElasticBeanstalk, RDS, Elasticache, S3, Lambda, etc.
-            </li>
-            <li>
-                GraphQL - Especially with
-                <a href="https://nexus.js.org/">Nexus</a> + Typescript
-            </li>
-            <li>Django</li>
+          <li>React + TypeScript</li>
+          <li>Flutter</li>
+          <li>Firebase</li>
+          <li>React Native</li>
+          <li>Express</li>
+          <li>
+            AWS – EC2, Elastic Beanstalk, RDS, ElastiCache, S3, Lambda, etc.
+          </li>
+          <li>
+            GraphQL – Especially with
+            <a href="https://nexus.js.org/">Nexus</a> + TypeScript
+          </li>
+          <li>Django</li>
         </ul>
+      </section>
 
+      <section>
         <h2>Languages</h2>
         <ul>
-            <li>Typescript</li>
-            <li>Dart</li>
-            <li>Python</li>
-            <li>GO</li>
-            <li>Javascript</li>
-            <li>Java</li>
+          <li>TypeScript</li>
+          <li>Dart</li>
+          <li>Python</li>
+          <li>Go</li>
+          <li>JavaScript</li>
+          <li>Java</li>
         </ul>
+      </section>
 
+      <section>
         <h2>Recent Projects</h2>
         <ul>
-            <li>
-                PixationAI
-
-                <ul>
-                    Based on the PixationImages platform, this project uses AI
-                    to generate content from partner images. The AI gathers
-                    information about the images, the subjects, events, and
-                    more. This information is used to generate supporting
-                    content for the images. The content can be exported to many
-                    formats for integration into partner systems.
-                </ul>
-            </li>
-
-            <br />
-            <li>
-                Newscom Dashboard - Private Internal Application for Image
-                Distribution Partners
-
-                <ul>
-                    Developed a Typescript and Python platform to find usage
-                    information on millions of images. Scrapes web pages to
-                    better understand where and how partner images are being
-                    used across the web. Processes millions of usage points per
-                    month. Advanced image identification techniques are used to
-                    find partner images in screengrabs. Webpages are scraped to
-                    identify owner information for the websites as well as image
-                    attribution information.
-                </ul>
-
-                <ul>
-                    Built on AWS with extensive Lambda and SQS integration.
-                </ul>
-            </li>
-
-            <br />
-            <li>
-                Newscom AI - <a href="https://newscom.ai">newscom.ai</a>
-
-                <ul>
-                    A website to allow users to search, view, and download a
-                    huge collection of AI generated images. Improved on the
-                    foundation of PixationImages, adding Stripe purchasing,
-                    token based downloads, and more. Carefully added techniques
-                    to allow different tenant's to have a unique selection of
-                    features while using the same code base.
-                </ul>
-
-                <ul>
-                    Built using PixationImages' multi-tenant capabilities. AWS
-                    hosted, OpenAI API integration.
-                </ul>
-            </li>
-
-            <br />
-            <li>
-                Mainstream Data Image CDN - Used Across Many Internal
-                Applications
-
-                <ul>
-                    Developed a golang application to provide access and
-                    manipulation options to Mainstream Data's huge collection of
-                    images. Serving them extremely quickly! Developed to use a
-                    JWT token to provide validation on access to the image and
-                    information about how a client would like the image resized,
-                    focused, blured, etc. Supports face detection and alignment
-                    while cropping an image.
-                </ul>
-
-                <ul>
-                    Running on on-premise hardware in a fully containerized
-                    dockerswarm.
-                </ul>
-            </li>
-
-            <br />
-            <li>
-                Pixation Images -
-                <a href="https://pixationimages.com">pixationimages.com</a>
-
-                <ul>
-                    Developed a Typescript+Express backend, and NextJS frontend
-                    to aggregate Mainstream Data's huge collection of images.
-                </ul>
-
-                <ul>
-                    Uses Elasticsearch, and many other AWS services.
-                </ul>
-            </li>
-
-            <br />
-            <li>
-                CPA Alerts - <a href="https://cpaalerts.com">cpaalerts.com</a>
-
-                <ul>
-                    Developed a Typescript+Express backend serving GQL data to a
-                    Typescript+React frontend built with Material UI, JSS and
-                    Apollo.
-                </ul>
-                <ul>
-                    Uses Intuit OAuth to authenticate users and clone their
-                    financial information from Quickbooks Online.
-                </ul>
-                <ul>
-                    Hosted on AWS EC2 using CI/CD built Docker images setup to
-                    autoscale if required.
-                </ul>
-            </li>
-
-            <br />
-            <li>
-                Ski Utah (4.9 Stars on the App Store) -
-                <a
-                    href="https://play.google.com/store/apps/details?id=com.podpro.skiutah&hl=en_US"
-                    >Google Play Store</a
-                >
-
-                <ul>
-                    Developed a React Native application to update Ski Utah's
-                    legacy mobile app.
-                </ul>
-                <ul>
-                    Developed a Django backend system to manage pulling data
-                    related to ski resorts, send push notifications, and store
-                    user preferences.
-                </ul>
-                <ul>
-                    Built using the
-                    <a href="https://expo.io/">Expo</a>
-                    platform to create universal apps between iOS and Android
-                </ul>
-            </li>
-
-            <br />
-            <li>
-                League of Legends Universe -
-                <a href="https://universe.leagueoflegends.com/en_US/"
-                    >Universe</a
-                >
-
-                <ul>
-                    Lead frontend developer for a React site to house all the
-                    info you could want about League of Legends
-                </ul>
-                <ul>
-                    Designed to handle huge amounts of traffic from all over the
-                    world.
-                </ul>
-                <ul>
-                    Built a complex system to statically build out site to
-                    handle traffic and SEO needs.
-                </ul>
-            </li>
+          <li>
+            <strong>PixationAI</strong>
+            <ul>
+              <li>
+                Based on the PixationImages platform, this project uses AI to
+                generate content from partner images. The AI gathers
+                information about the images, the subjects, events, and more.
+                This information is used to generate supporting content for the
+                images. The content can be exported to many formats for
+                integration into partner systems.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Newscom Dashboard</strong> – Private Internal Application
+            for Image Distribution Partners
+            <ul>
+              <li>
+                Developed a TypeScript and Python platform to find usage
+                information on millions of images. Scrapes web pages to better
+                understand where and how partner images are being used across
+                the web. Processes millions of usage points per month. Advanced
+                image identification techniques are used to find partner images
+                in screengrabs. Webpages are scraped to identify owner
+                information for the websites as well as image attribution
+                information.
+              </li>
+              <li>
+                Built on AWS with extensive Lambda and SQS integration.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Newscom AI</strong> –
+            <a href="https://newscom.ai">newscom.ai</a>
+            <ul>
+              <li>
+                A website to allow users to search, view, and download a huge
+                collection of AI‑generated images. Improved on the foundation
+                of PixationImages, adding Stripe purchasing, token‑based
+                downloads, and more. Carefully added techniques to allow
+                different tenants to have a unique selection of features while
+                using the same code base.
+              </li>
+              <li>
+                Built using PixationImages' multi‑tenant capabilities. AWS
+                hosted, OpenAI API integration.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Mainstream Data Image CDN</strong> – Used Across Many
+            Internal Applications
+            <ul>
+              <li>
+                Developed a Go application to provide access and manipulation
+                options to Mainstream Data's huge collection of images, serving
+                them extremely quickly. Developed to use a JWT token to provide
+                validation on access to the image and information about how a
+                client would like the image resized, focused, blurred, etc.
+                Supports face detection and alignment while cropping an image.
+              </li>
+              <li>
+                Running on on‑premise hardware in a fully containerized Docker
+                Swarm.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Pixation Images</strong> –
+            <a href="https://pixationimages.com">pixationimages.com</a>
+            <ul>
+              <li>
+                Developed a TypeScript + Express backend, and Next.js frontend
+                to aggregate Mainstream Data's huge collection of images.
+              </li>
+              <li>Uses Elasticsearch, and many other AWS services.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>CPA Alerts</strong> –
+            <a href="https://cpaalerts.com">cpaalerts.com</a>
+            <ul>
+              <li>
+                Developed a TypeScript + Express backend serving GraphQL data to
+                a TypeScript + React frontend built with Material UI, JSS and
+                Apollo.
+              </li>
+              <li>
+                Uses Intuit OAuth to authenticate users and clone their
+                financial information from QuickBooks Online.
+              </li>
+              <li>
+                Hosted on AWS EC2 using CI/CD built Docker images set up to
+                autoscale if required.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Ski Utah</strong> (4.9 stars on the App Store) –
+            <a
+              href="https://play.google.com/store/apps/details?id=com.podpro.skiutah&hl=en_US"
+              >Google Play Store</a
+            >
+            <ul>
+              <li>
+                Developed a React Native application to update Ski Utah's
+                legacy mobile app.
+              </li>
+              <li>
+                Developed a Django backend system to manage pulling data
+                related to ski resorts, send push notifications, and store user
+                preferences.
+              </li>
+              <li>
+                Built using the <a href="https://expo.io/">Expo</a> platform
+                to create universal apps between iOS and Android.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>League of Legends Universe</strong> –
+            <a href="https://universe.leagueoflegends.com/en_US/">Universe</a>
+            <ul>
+              <li>
+                Lead frontend developer for a React site to house all the info
+                you could want about League of Legends.
+              </li>
+              <li>
+                Designed to handle huge amounts of traffic from all over the
+                world.
+              </li>
+              <li>
+                Built a complex system to statically build out site to handle
+                traffic and SEO needs.
+              </li>
+            </ul>
+          </li>
         </ul>
+      </section>
 
+      <section>
         <h2>NPM Projects</h2>
         <ul>
-            <li>
-                react-vizibility-watcher -
-                <a href="https://www.npmjs.com/package/react-vizibility-watcher"
-                    >NPM</a
-                >
-            </li>
+          <li>
+            <a href="https://www.npmjs.com/package/react-vizibility-watcher"
+              >react‑vizibility‑watcher</a
+            >
+          </li>
         </ul>
+      </section>
 
+      <section>
         <h2>Misc</h2>
         <ul>
-            <li>
-                <a href="https://leetcode.com/u/skierkyles/">LeetCode</a>
-            </li>
-            <li>
-                <a href="https://www.kyleswanson.org/wanagon/">Travel Blog</a>
-            </li>
+          <li><a href="https://leetcode.com/u/skierkyles/">LeetCode</a></li>
+          <li>
+            <a href="https://www.kyleswanson.org/wanagon/">Travel Blog</a>
+          </li>
         </ul>
-    </body>
+      </section>
+    </main>
+  </body>
 </html>
