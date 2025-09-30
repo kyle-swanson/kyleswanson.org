@@ -2,19 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>Kyle Swanson</title>
-    <meta name="description" content="KyleSwanson.org" />
+    <meta name="description" content="Kyle Swanson's Portfolio" />
     <meta name="author" content="Kyle Swanson" />
+    <link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A">
 
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=MS+Sans+Serif:wght@400;700&display=swap');
+      
       :root {
-        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-        --clr-bg: #fdfdfd;
-        --clr-txt: #222;
-        --clr-accent: #0077ff;
-        --max-width: 800px;
+        --win95-bg: #c0c0c0;
+        --win95-light: #dfdfdf;
+        --win95-dark: #808080;
+        --win95-darkest: #404040;
+        --win95-blue: #0000ff;
+        --win95-blue-title: #000080;
+        --win95-white: #ffffff;
+        --win95-black: #000000;
+        --desktop-bg: linear-gradient(45deg, #008080 0%, #004040 25%, #008080 50%, #40a0a0 75%, #008080 100%);
+        --font-family: 'MS Sans Serif', sans-serif;
       }
 
       * {
@@ -23,301 +30,710 @@
 
       body {
         margin: 0;
-        padding: 2rem 1rem;
-        font-family: var(--font-sans);
-        color: var(--clr-txt);
-        background: var(--clr-bg);
-        line-height: 1.55;
+        padding: 0;
+        font-family: var(--font-family);
+        font-size: 12px;
+        background: var(--desktop-bg);
+        background-size: 200px 200px;
+        background-attachment: fixed;
+        position: relative;
+        overflow-x: auto;
+        min-height: 100vh;
+        color: var(--win95-black);
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+          radial-gradient(circle at 25% 25%, #ffffff08 1px, transparent 1px),
+          radial-gradient(circle at 75% 75%, #00000008 1px, transparent 1px),
+          radial-gradient(circle at 50% 50%, #ffffff04 1px, transparent 1px);
+        background-size: 3px 3px, 5px 5px, 7px 7px;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Desktop */
+      .desktop {
+        position: relative;
+        min-height: 100vh;
+        padding: 20px;
         display: flex;
         justify-content: center;
+        align-items: flex-start;
+        padding-top: 20px;
+        z-index: 2;
       }
 
-      main {
-        max-width: var(--max-width);
-        width: 100%;
+      .desktop-icon {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80px;
+        cursor: pointer;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        font-size: 12px;
+        padding: 5px;
+        border-radius: 3px;
+        text-decoration: none;
       }
 
-      header {
+      .desktop-icon:hover {
+        background: rgba(255,255,255,0.2);
+      }
+
+      .desktop-icon-image {
+        width: 32px;
+        height: 32px;
+        background: #808080;
+        border: 2px outset #c0c0c0;
         display: flex;
         align-items: center;
-        gap: 1rem;
-        margin-bottom: 2rem;
+        justify-content: center;
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      .icon-projects { top: 20px; left: 20px; }
+      .icon-linkedin { top: 20px; left: 20px; }
+      .icon-leetcode { top: 120px; left: 20px; }
+
+      /* Window Styling */
+      .window {
+        position: relative;
+        background: var(--win95-bg);
+        border: 2px outset var(--win95-bg);
+        width: 100%;
+        max-width: 800px;
+        min-height: 500px;
+        overflow: hidden;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin: 0 auto;
+      }
+
+      .title-bar {
+        background: linear-gradient(to right, var(--win95-blue-title), #0000aa);
+        color: white;
+        padding: 3px 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        font-size: 12px;
+        user-select: none;
+      }
+
+      .title-bar-controls {
+        display: flex;
+        gap: 2px;
+      }
+
+      .title-bar-button {
+        width: 16px;
+        height: 14px;
+        background: var(--win95-bg);
+        border: 1px outset var(--win95-bg);
+        font-size: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: black;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .title-bar-button:active {
+        border: 1px inset var(--win95-bg);
+      }
+
+      .window-content {
+        padding: 10px;
+        background: var(--win95-bg);
+      }
+
+      /* Profile Section */
+      .profile-section {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 2px inset var(--win95-bg);
+        background: var(--win95-light);
       }
 
       .avatar {
-        width: 96px;
-        height: 96px;
-        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        border: 2px inset var(--win95-bg);
+        background: white;
         object-fit: cover;
       }
 
-      h1 {
-        margin: 0;
-        font-size: clamp(2rem, 5vw, 3rem);
-        line-height: 1.2;
+      .profile-info h1 {
+        margin: 0 0 10px 0;
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--win95-blue-title);
       }
 
-      h2 {
-        font-size: clamp(1.25rem, 3.5vw, 1.5rem);
-        margin: 2rem 0 0.5rem;
-        line-height: 1.3;
-        color: var(--clr-accent);
+      .profile-info p {
+        margin: 5px 0;
+        font-size: 12px;
+        line-height: 1.4;
       }
 
-      ul {
-        padding-left: 1.25rem;
-        margin-top: 0.5rem;
+      /* Sections */
+      .section {
+        margin-bottom: 15px;
+        border: 2px inset var(--win95-bg);
+        background: white;
       }
 
-      li + li {
-        margin-top: 0.25rem;
+      .section-header {
+        background: var(--win95-bg);
+        border-bottom: 1px solid var(--win95-dark);
+        padding: 5px 10px;
+        font-weight: bold;
+        font-size: 12px;
+        color: var(--win95-blue-title);
       }
 
-      a {
-        color: var(--clr-accent);
-        text-decoration: none;
-        transition: opacity 0.15s ease-in-out;
+      .section-content {
+        padding: 10px;
+        font-size: 12px;
+        line-height: 1.4;
       }
 
-      a:hover {
+      .section-content ul {
+        margin: 5px 0;
+        padding-left: 20px;
+      }
+
+      .section-content li {
+        margin: 3px 0;
+      }
+
+      .section-content a {
+        color: var(--win95-blue);
         text-decoration: underline;
-        opacity: 0.8;
+        -webkit-tap-highlight-color: rgba(0, 0, 255, 0.3);
+        padding: 2px 1px;
+        margin: -2px -1px;
       }
 
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --clr-bg: #1b1b1b;
-          --clr-txt: #e8e8e8;
-          --clr-accent: #66aaff;
+      .section-content a:hover,
+      .section-content a:active {
+        background: var(--win95-blue);
+        color: white;
+      }
+
+      /* Button styling */
+      .tabs {
+        display: flex;
+        background: var(--win95-bg);
+        border-bottom: 1px solid var(--win95-dark);
+        margin-bottom: 0;
+      }
+
+      .tab {
+        background: var(--win95-bg);
+        border: 1px outset var(--win95-bg);
+        border-bottom: none;
+        padding: 5px 15px;
+        cursor: pointer;
+        font-size: 12px;
+        margin-right: 2px;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .tab:active {
+        background: var(--win95-light);
+      }
+
+      .tab.active {
+        background: white;
+        border-bottom: 1px solid white;
+        position: relative;
+        z-index: 1;
+      }
+
+      .tab-content {
+        display: none;
+        padding: 15px;
+        background: white;
+        border: 1px solid var(--win95-dark);
+        border-top: none;
+        min-height: 400px;
+        max-height: 500px;
+        overflow-y: auto;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      /* Button styling */
+      .win95-button {
+        background: var(--win95-bg);
+        border: 2px outset var(--win95-bg);
+        padding: 3px 8px;
+        font-family: var(--font-family);
+        font-size: 12px;
+        cursor: pointer;
+        margin: 2px;
+      }
+
+      .win95-button:active {
+        border: 2px inset var(--win95-bg);
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 16px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--win95-bg);
+        border: 1px inset var(--win95-bg);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--win95-bg);
+        border: 1px outset var(--win95-bg);
+      }
+
+      ::-webkit-scrollbar-button {
+        background: var(--win95-bg);
+        border: 1px outset var(--win95-bg);
+        height: 16px;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        body {
+          font-size: 12px;
+        }
+
+        .desktop {
+          padding: 10px;
+          min-height: auto;
+          padding-top: 20px;
+        }
+
+        .window {
+          width: calc(100% - 20px);
+          margin: 10px;
+          min-height: auto;
+          max-width: none;
+        }
+        
+        .profile-section {
+          flex-direction: column;
+          text-align: center;
+          padding: 15px;
+          gap: 10px;
+          align-items: center;
+        }
+
+        .profile-info {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .avatar {
+          width: 60px;
+          height: 60px;
+          margin: 0 auto;
+        }
+
+        .profile-info h1 {
+          font-size: 18px;
+          margin-bottom: 8px;
+        }
+
+        .profile-info p {
+          font-size: 12px;
+          margin: 3px 0;
+        }
+
+        .tab {
+          padding: 8px 12px;
+          font-size: 12px;
+          margin-right: 1px;
+        }
+
+        .tab-content {
+          max-height: none;
+          padding: 12px;
+          overflow-y: visible;
+        }
+
+        .section-header {
+          font-size: 12px;
+          padding: 6px 12px;
+        }
+
+        .section-content {
+          padding: 12px;
+          font-size: 12px;
+          line-height: 1.5;
+        }
+
+        .section-content ul {
+          padding-left: 18px;
+        }
+
+        .section-content li {
+          margin: 5px 0;
+        }
+
+        /* Hide desktop icons on mobile */
+        .desktop-icon {
+          display: none;
+        }
+
+        /* Adjust scrollbar for mobile */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        ::-webkit-scrollbar-button {
+          height: 8px;
+        }
+      }
+
+      /* Additional mobile optimizations for very small screens */
+      @media (max-width: 480px) {
+        body {
+          font-size: 12px;
+        }
+
+        .desktop {
+          padding: 5px;
+          padding-top: 10px;
+        }
+
+        /* Desktop icons hidden on mobile */
+        .desktop-icon {
+          display: none;
+        }
+
+        .window {
+          width: calc(100% - 10px);
+          margin: 5px;
+          border-width: 1px;
+        }
+
+        .title-bar {
+          padding: 2px 5px;
+          font-size: 10px;
+          min-height: 18px;
+        }
+
+        .title-bar span {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          flex: 1;
+        }
+
+        .title-bar-button {
+          width: 14px;
+          height: 12px;
+          font-size: 7px;
+        }
+
+        .profile-section {
+          padding: 10px;
+          text-align: center;
+          align-items: center;
+        }
+
+        .profile-info {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .avatar {
+          width: 50px;
+          height: 50px;
+        }
+
+        .profile-info h1 {
+          font-size: 16px;
+        }
+
+        .profile-info p {
+          font-size: 12px;
+        }
+
+        .tab {
+          padding: 6px 8px;
+          font-size: 12px;
+        }
+
+        .tab-content {
+          max-height: none;
+          padding: 10px;
+          overflow-y: visible;
+        }
+
+        .section-header {
+          font-size: 12px;
+          padding: 5px 10px;
+        }
+
+        .section-content {
+          padding: 10px;
+          font-size: 12px;
+        }
+
+        .section-content p {
+          margin: 8px 0 4px 0;
+        }
+
+        .section-content strong {
+          display: block;
+          margin-bottom: 4px;
+          color: var(--win95-blue-title);
+        }
+
+        .section-content ul {
+          padding-left: 15px;
         }
       }
     </style>
   </head>
 
   <body>
-    <main>
-      <header>
-        <img src="profile.jpeg" alt="Kyle Swanson" class="avatar" />
-        <h1>Kyle Swanson</h1>
-      </header>
+    <!-- Desktop Background -->
+    <div class="desktop">
+      <!-- Desktop Icons -->
+      <!-- <a href="https://www.kyleswanson.org/wanagon/" target="_blank" class="desktop-icon icon-projects">
+        <div class="desktop-icon-image">�️</div>
+        <span>Travel Blog</span>
+      </a> -->
 
-      <section>
-        <h2>Timeline</h2>
-        <ul>
-          <li>2019–Present | Mainstream Data</li>
-          <li>2014–2019 | Super Top Secret</li>
-          <li>2013–2015 | Westminster College</li>
-          <li>2011–2013 | Salt Lake Community College</li>
-        </ul>
-      </section>
+      <a href="https://www.linkedin.com/in/kyle-swanson-48b70a105/" target="_blank" class="desktop-icon icon-linkedin">
+        <div class="desktop-icon-image">💼</div>
+        <span>LinkedIn</span>
+      </a>
+      
+      <a href="https://leetcode.com/u/skierkyles/" target="_blank" class="desktop-icon icon-leetcode">
+        <div class="desktop-icon-image">🧮</div>
+        <span>LeetCode</span>
+      </a>
 
-      <section>
-        <h2>Bio</h2>
-        <p>
-          I'm a Westminster College graduate in Computer Science with a 3.979
-          GPA.
-        </p>
-        <p>
-          In my spare time you'll find me skiing, mountain biking, rock
-          climbing, and anything else you can think of outside.
-        </p>
-      </section>
+      <!-- Main Window -->
+      <div class="window" id="mainWindow">
+        <div class="title-bar">
+          <span>📄 Kyle Swanson - Personal Information</span>
+          <div class="title-bar-controls">
+            <div class="title-bar-button">_</div>
+            <div class="title-bar-button">□</div>
+            <div class="title-bar-button">×</div>
+          </div>
+        </div>
+        
+        <div class="window-content">
+          <!-- Profile Section -->
+          <div class="profile-section">
+            <img src="profile.jpeg" alt="Kyle Swanson" class="avatar" />
+            <div class="profile-info">
+              <h1>Kyle Swanson</h1>
+              <p><strong>Software Engineer</strong></p>
+              <p>Westminster College Computer Science Graduate</p>
+              <p>GPA: 3.979 | Outdoor Enthusiast</p>
+            </div>
+          </div>
 
-      <section>
-        <h2>Experience With</h2>
-        <ul>
-          <li>React + TypeScript</li>
-          <li>Flutter</li>
-          <li>Firebase</li>
-          <li>React Native</li>
-          <li>Express</li>
-          <li>
-            AWS – EC2, Elastic Beanstalk, RDS, ElastiCache, S3, Lambda, etc.
-          </li>
-          <li>
-            GraphQL – Especially with
-            <a href="https://nexus.js.org/">Nexus</a> + TypeScript
-          </li>
-          <li>Django</li>
-        </ul>
-      </section>
+          <!-- Tabs -->
+          <div class="tabs">
+            <div class="tab active" onclick="showTab('general')">General</div>
+            <div class="tab" onclick="showTab('experience')">Experience</div>
+            <div class="tab" onclick="showTab('projects')">Projects</div>
+            <div class="tab" onclick="showTab('contact')">Contact</div>
+          </div>
 
-      <section>
-        <h2>Languages</h2>
-        <ul>
-          <li>TypeScript</li>
-          <li>Dart</li>
-          <li>Python</li>
-          <li>Go</li>
-          <li>JavaScript</li>
-          <li>Java</li>
-        </ul>
-      </section>
+          <!-- Tab Content -->
+          <div id="general" class="tab-content active">
+            <div class="section">
+              <div class="section-header">📋 Timeline</div>
+              <div class="section-content">
+                <ul>
+                  <li><strong>2019–Present</strong> | Mainstream Data</li>
+                  <li><strong>2014–2019</strong> | Super Top Secret</li>
+                  <li><strong>2013–2015</strong> | Westminster College</li>
+                  <li><strong>2011–2013</strong> | Salt Lake Community College</li>
+                </ul>
+              </div>
+            </div>
 
-      <section>
-        <h2>Recent Projects</h2>
-        <ul>
-          <li>
-            <strong>PixationAI</strong>
-            <ul>
-              <li>
-                Based on the PixationImages platform, this project uses AI to
-                generate content from partner images. The AI gathers
-                information about the images, the subjects, events, and more.
-                This information is used to generate supporting content for the
-                images. The content can be exported to many formats for
-                integration into partner systems.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <strong>Newscom Dashboard</strong> – Private Internal Application
-            for Image Distribution Partners
-            <ul>
-              <li>
-                Developed a TypeScript and Python platform to find usage
-                information on millions of images. Scrapes web pages to better
-                understand where and how partner images are being used across
-                the web. Processes millions of usage points per month. Advanced
-                image identification techniques are used to find partner images
-                in screengrabs. Webpages are scraped to identify owner
-                information for the websites as well as image attribution
-                information.
-              </li>
-              <li>
-                Built on AWS with extensive Lambda and SQS integration.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <strong>Newscom AI</strong> –
-            <a href="https://newscom.ai">newscom.ai</a>
-            <ul>
-              <li>
-                A website to allow users to search, view, and download a huge
-                collection of AI‑generated images. Improved on the foundation
-                of PixationImages, adding Stripe purchasing, token‑based
-                downloads, and more. Carefully added techniques to allow
-                different tenants to have a unique selection of features while
-                using the same code base.
-              </li>
-              <li>
-                Built using PixationImages' multi‑tenant capabilities. AWS
-                hosted, OpenAI API integration.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <strong>Mainstream Data Image CDN</strong> – Used Across Many
-            Internal Applications
-            <ul>
-              <li>
-                Developed a Go application to provide access and manipulation
-                options to Mainstream Data's huge collection of images, serving
-                them extremely quickly. Developed to use a JWT token to provide
-                validation on access to the image and information about how a
-                client would like the image resized, focused, blurred, etc.
-                Supports face detection and alignment while cropping an image.
-              </li>
-              <li>
-                Running on on‑premise hardware in a fully containerized Docker
-                Swarm.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <strong>Pixation Images</strong> –
-            <a href="https://pixationimages.com">pixationimages.com</a>
-            <ul>
-              <li>
-                Developed a TypeScript + Express backend, and Next.js frontend
-                to aggregate Mainstream Data's huge collection of images.
-              </li>
-              <li>Uses Elasticsearch, and many other AWS services.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>CPA Alerts</strong> –
-            <a href="https://cpaalerts.com">cpaalerts.com</a>
-            <ul>
-              <li>
-                Developed a TypeScript + Express backend serving GraphQL data to
-                a TypeScript + React frontend built with Material UI, JSS and
-                Apollo.
-              </li>
-              <li>
-                Uses Intuit OAuth to authenticate users and clone their
-                financial information from QuickBooks Online.
-              </li>
-              <li>
-                Hosted on AWS EC2 using CI/CD built Docker images set up to
-                autoscale if required.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <strong>Ski Utah</strong> (4.9 stars on the App Store) –
-            <a
-              href="https://play.google.com/store/apps/details?id=com.podpro.skiutah&hl=en_US"
-              >Google Play Store</a
-            >
-            <ul>
-              <li>
-                Developed a React Native application to update Ski Utah's
-                legacy mobile app.
-              </li>
-              <li>
-                Developed a Django backend system to manage pulling data
-                related to ski resorts, send push notifications, and store user
-                preferences.
-              </li>
-              <li>
-                Built using the <a href="https://expo.io/">Expo</a> platform
-                to create universal apps between iOS and Android.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <strong>League of Legends Universe</strong> –
-            <a href="https://universe.leagueoflegends.com/en_US/">Universe</a>
-            <ul>
-              <li>
-                Lead frontend developer for a React site to house all the info
-                you could want about League of Legends.
-              </li>
-              <li>
-                Designed to handle huge amounts of traffic from all over the
-                world.
-              </li>
-              <li>
-                Built a complex system to statically build out site to handle
-                traffic and SEO needs.
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </section>
+            <div class="section">
+              <div class="section-header">👤 Biography</div>
+              <div class="section-content">
+                <p>I'm a Westminster College graduate in Computer Science with a 3.979 GPA.</p>
+                <p>In my spare time you'll find me skiing, mountain biking, rock climbing, and anything else you can think of outside.</p>
+              </div>
+            </div>
 
-      <section>
-        <h2>NPM Projects</h2>
-        <ul>
-          <li>
-            <a href="https://www.npmjs.com/package/react-vizibility-watcher"
-              >react‑vizibility‑watcher</a
-            >
-          </li>
-        </ul>
-      </section>
+            <div class="section">
+              <div class="section-header">💻 Programming Languages</div>
+              <div class="section-content">
+                <ul>
+                  <li>TypeScript</li>
+                  <li>Dart</li>
+                  <li>Python</li>
+                  <li>Go</li>
+                  <li>JavaScript</li>
+                  <li>Java</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-      <section>
-        <h2>Misc</h2>
-        <ul>
-          <li><a href="https://leetcode.com/u/skierkyles/">LeetCode</a></li>
-          <li>
-            <a href="https://www.kyleswanson.org/wanagon/">Travel Blog</a>
-          </li>
-        </ul>
-      </section>
-    </main>
+          <div id="experience" class="tab-content">
+            <div class="section">
+              <div class="section-header">🛠️ Technical Experience</div>
+              <div class="section-content">
+                <ul>
+                  <li><strong>React + TypeScript</strong> - Modern web applications</li>
+                  <li><strong>Flutter</strong> - Cross-platform mobile development</li>
+                  <li><strong>Firebase</strong> - Cloud services and real-time databases</li>
+                  <li><strong>React Native</strong> - Mobile app development</li>
+                  <li><strong>Express</strong> - Node.js web framework</li>
+                  <li><strong>AWS</strong> - EC2, Elastic Beanstalk, RDS, ElastiCache, S3, Lambda, etc.</li>
+                  <li><strong>GraphQL</strong> - Especially with <a href="https://nexus.js.org/">Nexus</a> + TypeScript</li>
+                  <li><strong>Django</strong> - Python web framework</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="projects" class="tab-content">
+            <div class="section">
+              <div class="section-header">🚀 Projects</div>
+              <div class="section-content">
+                <p><strong>MetadataAI</strong> - <a href="https://www.metadataai.app/en">metadataai.app</a></p>
+                <ul>
+                  <li>Create professional headlines, captions, descriptions and keywords for any image in seconds.</li>
+                  <li>Lead developer of Flutter based MacOS and Windows application to help photographers quickly tag their photos with appropriate Metadata for better distribution.</li>
+                  <li>Designed a GOLang backend to process images, parse metadata and consult various LLM's about their content.</li>
+                  <li>Built a backend system to quickly track usage, decrement credits, accept Stripe payments, and more.</li>
+                </ul>
+
+                <p><strong>PixationAI</strong></p>
+                <ul>
+                  <li>AI-powered content generation from partner images using advanced image analysis and machine learning techniques.</li>
+                </ul>
+
+                <p><strong>Newscom Dashboard</strong> - Private Internal Application</p>
+                <ul>
+                  <li>TypeScript and Python platform processing millions of usage points per month with advanced image identification.</li>
+                  <li>Built on AWS with extensive Lambda and SQS integration.</li>
+                </ul>
+
+                <p><strong>Newscom AI</strong> - <a href="https://newscom.ai">newscom.ai</a></p>
+                <ul>
+                  <li>AI-generated image marketplace with Stripe purchasing and token-based downloads.</li>
+                  <li>Multi-tenant capabilities with OpenAI API integration.</li>
+                </ul>
+
+                <p><strong>Mainstream Data Image CDN</strong></p>
+                <ul>
+                  <li>Go application providing fast image access and manipulation with JWT validation.</li>
+                  <li>Supports face detection and alignment while cropping images.</li>
+                </ul>
+
+                <p><strong>Pixation Images</strong> - <a href="https://pixationimages.com">pixationimages.com</a></p>
+                <ul>
+                  <li>TypeScript + Express backend with Next.js frontend for image aggregation.</li>
+                  <li>Uses Elasticsearch and various AWS services.</li>
+                </ul>
+
+                <p><strong>CPA Alerts</strong> - <a href="https://cpaalerts.com">cpaalerts.com</a></p>
+                <ul>
+                  <li>GraphQL API with React frontend and Material UI.</li>
+                  <li>Intuit OAuth integration for QuickBooks Online data.</li>
+                </ul>
+
+                <p><strong>Ski Utah App</strong> (4.9 stars on App Store)</p>
+                <ul>
+                  <li>React Native application with Django backend for ski resort information.</li>
+                  <li>Built with Expo platform for iOS and Android.</li>
+                </ul>
+
+                <p><strong>League of Legends Universe</strong> - <a href="https://universe.leagueoflegends.com/en_US/">Universe</a></p>
+                <ul>
+                  <li>Lead frontend developer for React site handling massive global traffic.</li>
+                  <li>Complex static site generation for traffic and SEO optimization.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- <div class="section">
+              <div class="section-header">📦 NPM Projects</div>
+              <div class="section-content">
+                <ul>
+                  <li><a href="https://www.npmjs.com/package/react-vizibility-watcher">react-vizibility-watcher</a></li>
+                </ul>
+              </div>
+            </div> -->
+          </div>
+
+          <div id="contact" class="tab-content">
+            <div class="section">
+              <div class="section-header">🔗 Links & Contact</div>
+              <div class="section-content">
+                <ul>
+                  <li><a href="https://www.linkedin.com/in/kyle-swanson-48b70a105/">LinkedIn Profile</a></li>
+                  <li><a href="https://leetcode.com/u/skierkyles/">LeetCode Profile</a></li>
+                  <!-- <li><a href="https://www.kyleswanson.org/wanagon/">Travel Blog (The Wanagon)</a></li> -->
+                </ul>
+                <p>Feel free to reach out through any of the above platforms!</p>
+                <br>
+                <p><em>Built with nostalgia for the golden age of computing! 🖥️</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Tab functionality
+      function showTab(tabName) {
+        // Hide all tab contents
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        // Remove active class from all tabs
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        
+        // Show selected tab content
+        document.getElementById(tabName).classList.add('active');
+        
+        // Add active class to clicked tab
+        event.target.classList.add('active');
+      }
+    </script>
   </body>
 </html>
